@@ -15,15 +15,19 @@ module Griddler
           from: sender,
           cc: cc,
           bcc: bcc,
-          subject: subject,
-          text: text_part,
-          html: html_part,
+          subject: encode(subject),
+          text: encode(text_part),
+          html: encode(html_part),
           headers: raw_headers,
           attachments: attachment_files
         )
       end
 
       private
+
+      def encode(str)
+        str.force_encoding('UTF-8') if str
+      end
 
       def ensure_valid_notification_type!
         return if notification_type == 'Received'
