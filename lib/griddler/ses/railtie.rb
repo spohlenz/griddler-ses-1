@@ -6,7 +6,6 @@ module Griddler
           # Rails 5 no longer instantiates ActionDispatch::ParamsParser
           # https://github.com/rails/rails/commit/a1ced8b52ce60d0634e65aa36cb89f015f9f543d
           Rails.application.middleware.use Middleware
-          Rails.application.middleware.use Griddler::Ses::Middleware
         else
           Rails.application.middleware.insert_before ActionDispatch::ParamsParser, Griddler::Ses::Middleware
         end
