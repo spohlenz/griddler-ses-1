@@ -1,5 +1,4 @@
 require 'mail'
-require 'sns_endpoint'
 require 'net/http'
 
 module Griddler
@@ -17,7 +16,7 @@ module Griddler
       end
 
       def normalize_params
-        sns_msg = SnsEndpoint::AWS::SNS::Message.new sns_json
+        sns_msg = SnsMessage.new sns_json
         raise "Invalid SNS message" unless message_valid?(sns_msg)
 
         case sns_msg.type
@@ -45,4 +44,3 @@ module Griddler
     end
   end
 end
-

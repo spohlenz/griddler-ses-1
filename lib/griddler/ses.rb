@@ -9,6 +9,7 @@ require 'griddler/ses/prepare_notification_params'
 require 'griddler/ses/message_content'
 require 'griddler/ses/message_content/from_params_fetcher'
 require 'griddler/ses/message_content/s3_fetcher'
+require 'griddler/ses/sns_message'
 
 module Griddler
   module Ses
